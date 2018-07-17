@@ -2,6 +2,15 @@ spring:
   devtools:
     remote:
       secret: mysecret
+  profiles:
+    active: production
+  output:
+    ansi:
+      enabled: always
+
+server:
+  port: 8000
+
 
 name: 这是yml文件中的数据
 
@@ -14,3 +23,24 @@ my:
     int.less.than.ten: ${random.int(10)}
     # 100前面和1000后面可以是 -，(，[ 等任意字符
     int.in.range: ${random.int-100,1000-}
+    enable: false;
+    remoteAddress: 8.8.8.8
+    servers:
+      - dev.example.com
+      - another.example.com
+
+myserver:
+  address: 8.8.8.9
+
+---
+spring:
+  profiles: development
+myserver:
+  address: 127.0.0.1
+---
+spring:
+  profiles: production
+myserver:
+  address: 114.114.114.114
+
+

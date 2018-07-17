@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.zzg.Value.ValueAll;
 import org.zzg.Value.ZzgValue;
+import org.zzg.yml.YmlAll;
 
 /**
  * Created by zhangzhenguo
@@ -24,9 +25,14 @@ public class SpringbootStarter {
 
     @Autowired
     private ValueAll valueAll;
+
+    @Autowired
+    private YmlAll ymlAll;
+
     @RequestMapping("/")
     public String hello(){
         valueAll.show();
+        ymlAll.show();
         return "waht are sssyou nongs ha nei";
     }
 
